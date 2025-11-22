@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Pixelify_Sans, Ubuntu } from "next/font/google";
 import "./globals.css";
+import Provider from "./provider";
 
 const gameFont = Pixelify_Sans({
   subsets: ["latin"],
@@ -24,12 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        suppressHydrationWarning={true}
-        className={` ${gameFont.variable} ${ubuntu.variable}`}
-      >
-        {children}
+    <html lang="en" suppressHydrationWarning className="dark">
+      <body className={` ${gameFont.variable} ${ubuntu.variable}`}>
+        <Provider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </Provider>
       </body>
     </html>
   );
