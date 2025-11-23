@@ -11,10 +11,11 @@ const Dashboard = () => {
           <WelcomeBanner />
           <CoursesEnrolled />
           <ExploreMore />
-          <InviteFriend />
         </div>
 
-        <div className="hidden lg:block"></div>
+        <div className="lg:block">
+          <InviteFriend />
+        </div>
       </div>
     </div>
   );
